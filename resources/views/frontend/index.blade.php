@@ -53,7 +53,7 @@
       
       @foreach($categories as $cat)
           <div class="col-md-4">
-            <a  href="/products?cat_name={{$cat->title}}">
+            <a  href="{{url('products/'.$cat->title)}}">
             <div id="product-1" class="single-product">
               <div class="part-1 hover-zoom text-center">
                 <img src="uploads/{{$cat->image}}" alt="">

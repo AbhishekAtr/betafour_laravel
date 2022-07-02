@@ -158,7 +158,7 @@
                         $('#title').val(response.product.title);
                         $('#image').val(response.product.image);
                         $('#cat_id').val(response.product.cat_id);
-                        $('#description1').val(response.product.description);
+                        $('#descriptions').val(response.product.description);
                         $('#category').val(response.product.category);
                         $('#id').val(id);
                     }
@@ -182,6 +182,15 @@
                     <div class="modal-body">
                         <form action="{{ url('product') }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            <div class="col-md-12 mb-4">
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="fimage">
+                                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">
+                                        Button
+                                    </button>
+                                </div>
+                            </div>
                             <div class="col-md-12 mb-4">
                                 <div class="input-group">
                                     <input type="file" class="form-control" id="inputGroupFile04"
@@ -257,6 +266,15 @@
                             <div class="col-md-12 mb-4">
                                 <div class="input-group">
                                     <input type="file" class="form-control" id="inputGroupFile04"
+                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="fimage">
+                                    <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">
+                                        Button
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04"
                                         aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="image[]"
                                         id="image" value="" multiple>
                                     <button class="btn btn-outline-secondary" type="button"
@@ -295,7 +313,7 @@
                             </div> --}}
                             <div class="col-md-12">
                                 <div class="input-group mb-3">
-                                    <textarea name="description1" id="description1" class="form-control" rows="4" placeholder="description"></textarea>
+                                    <textarea name="description" id="descriptions" class="form-control" rows="4" placeholder="description"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-12">

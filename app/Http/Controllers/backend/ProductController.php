@@ -56,19 +56,21 @@ class ProductController extends Controller
 
                 'image' => 'required',
                 'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
+                'fimage' => 'required',
+                'fimage.*' => 'image|mimes:jpeg,png,jpg,gif,svg',
                 'title' => 'required',
                 'description' => 'required',
                 'category' => 'required',
 
         ]);
         
-        // if($request->hasfile('image'))
+        // if($request->hasfile('fimage'))
         //  {
-        //     foreach($request->file('image') as $image)
+        //     foreach($request->file('fimage') as $image)
         //     {
         //         $name=date('YmdHi').$image->getClientOriginalName();
         //         $image->move('uploads/', $name);  
-        //         $data[] = $name;  
+        //         $data = $name;  
         //     }
         //  }
 
@@ -98,6 +100,7 @@ class ProductController extends Controller
             'description'=>$input['description'],
             'category'=>$input['category'],
             //you can put other insertion here
+
         ]);
 
         return redirect('/product')->with('success','Data Insert Successfully');
