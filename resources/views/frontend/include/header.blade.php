@@ -30,8 +30,8 @@
                 @endforeach
               </ul>
             </li>
-            <li><a href="newrelease.php" class="nav-link {{request()->is('new-release')? 'active': ''}}">New Release</a></li>
-            <li><a href="catalogue.php" class="nav-link {{request()->is('catalogue')? 'active': ''}}">Catalogue</a></li>
+            <li><a href="{{url('/newrelease')}}" class="nav-link {{request()->is('new-release')? 'active': ''}}">New Release</a></li>
+            <li><a href="{{url('/catalogue')}}" class="nav-link {{request()->is('catalogue')? 'active': ''}}">Catalogue</a></li>
           </ul>
          
         </nav>
@@ -53,7 +53,7 @@
       <div class="col-lg-4">
         <nav class="site-navigation" role="navigation" style="padding-left: 25px;">
           <ul class="site-menu main-menu js-clone-nav  d-none d-lg-block ">
-            <li class="{{request()->is('news')? 'active': ''}}"><a href="news.php" class="nav-link">News & Events</a></li>
+            <li class="{{request()->is('news')? 'active': ''}}"><a href="{{url('/news')}}" class="nav-link">News & Events</a></li>
             <li class="{{request()->is('about')? 'active': ''}}"><a href="{{url('/about')}}" class="nav-link">About</a></li>
             <li class="{{request()->is('contact')? 'active': ''}}"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
           </ul>

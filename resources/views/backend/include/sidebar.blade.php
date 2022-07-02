@@ -1,48 +1,6 @@
 @include('backend.include.css-url')
 
-{{-- <header class="header" id="header">
-    <div class="header_toggle">
-        <i class='fa fa-bars' id="header-toggle"></i>
-    </div>
-    <div class="header_img">
-        <img src="{{url('backend/image/user.png')}}" alt="">
-    </div>
-</header>
-<div class="l-navbar" id="nav-bar">
-    <nav class="nav" id="nav">
-        <div>
-            <a href="{{url('/dashboard')}}" class="nav_logo">
-                <img src="{{url('backend/image/logo.png')}}" class="w-50" id="logo" alt="">
-            </a>
-            <div class="nav_list">
-                <a href="{{url('/dashboard')}}" class="nav_link active">
-                    <i class='fa fa-th-large nav_icon'></i>
-                    <span class="nav_name">Dashboard</span>
-                </a>
-                <a href="{{url('/home-slider')}}" class="nav_link">
-                    <i class='fa fa-home nav_icon'></i>
-                    <span class="nav_name">Home Slider</span>
-                </a>
-                <a href="{{ route('category') }}" class="nav_link">
-                    <i class='fa fa-bookmark nav_icon'></i>
-                    <span class="nav_name">Category</span>
-                </a>
-                <a href="{{route('product')}}" class="nav_link">
-                    <i class='fa fa-product-hunt nav_icon'></i>
-                    <span class="nav_name">Products</span>
-                </a>
-                <a href="#" class="nav_link">
-                    <i class='fa fa-shopping-cart nav_icon'></i>
-                    <span class="nav_name">New Release</span>
-                </a>
-            </div>
-        </div>
-        <a href="/logout" class="nav_link">
-            <i class='fa fa-sign-out nav_icon'></i>
-            <span class="nav_name">SignOut</span>
-        </a>
-    </nav>
-</div> --}}
+
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <header class="header" id="header">
@@ -93,7 +51,9 @@
         </div>
         
         <main class="col ps-md-2 pt-5">
+            <div class="container">
             @yield('main')
+        </div>
         </main>
         
         

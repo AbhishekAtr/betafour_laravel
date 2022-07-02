@@ -35,7 +35,7 @@
           <div class=" col-md-4 mb-4">
 
             <div class="bg-image hover-zoom ripple shadow-1-strong rounded card p-2 border">
-              <a href="{{url('productdetails/'.$product->id)}}"class="text-center">
+              <a href="{{url('productdetails/'.$product->id)}}" class="text-center">
 
                 <img src="/uploads/{{$product->image}}" class="w-100" />
                 <div class="mt-2 card-footer">

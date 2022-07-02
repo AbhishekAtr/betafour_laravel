@@ -51,7 +51,7 @@
             </div>
             <div class="col-md-12 col-lg-6">
                 <div class="card border-0 shadow-sm text-white">
-                    <img src="images/brands/1.png" alt="video" class="img-fluid rounded shadow-sm w-50">
+                    <img src="{{url('frontend/images/brands/1.png')}}" alt="video" class="img-fluid rounded shadow-sm w-50">
                 </div>
             </div>
         </div>

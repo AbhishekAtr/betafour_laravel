@@ -25,54 +25,70 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div class="card py-4">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                Add Category
-                            </button>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-6 col-sm-6">
+                        <form>
+                            <div class="col-md-4 form-group">
+                                <input type="search" class="form-control" name="search" id="search"
+                                    value="{{ $search }}" placeholder="search here">
+                            </div>
+                            <div class="col-md-3 mt-4">
+                                <button class="btn btn-success" type="submit">Search</button>
+                                <a href="{{ url('/category') }}">
+                                    <button class="btn-info btn" type="button">Reset</button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Add Category
+                        </button>
                     </div>
                 </div>
-                <div class="container-fluid text-center">
-                    <table class="table table-striped w-100">
-                        <thead>
-                            <tr class="table-success">
-                                <th>S.no</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if ($categories->count() > 0)
-                                @foreach ($categories as $category)
-                                    <tr>
-                                        <input type="hidden" class="delete" value="{{ $category->id }}">
-                                        <td width="10%">{{ $loop->index + 1 }}</td>
-                                        <td width="10%">{{ $category->title }}</td>
-                                        <td width="30%">{{ $category->description }}</td>
-                                        <td width="30%"><img src="uploads/{{ $category->image }}" alt=""
-                                                style="width:100px; height:100px">
-                                        </td>
-                                        <td width="20%">
-                                            <button type="button" value="{{ $category->id }}"
-                                                class="btn btn-info editcat">Edit</button>
-                                            <button type="button" value="{{ $category->id }}"
-                                                class="btn btn-danger deletecat">Delete</button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="5">No Data Found</td>
+            </div>
+            <div class="container mt-2">
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-sm-6">
+                        <table class="table table-striped w-100">
+                            <thead>
+                                <tr class="table-success">
+                                    <th>S.no</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Action</th>
                                 </tr>
-                            @endif
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                @if ($categories->count() > 0)
+                                    @foreach ($categories as $category)
+                                        <tr>
+                                            <input type="hidden" class="delete" value="{{ $category->id }}">
+                                            <td width="10%">{{ $loop->index + 1 }}</td>
+                                            <td width="10%">{{ $category->title }}</td>
+                                            <td width="30%">{{ $category->description }}</td>
+                                            <td width="30%"><img src="uploads/{{ $category->image }}" alt=""
+                                                    style="width:100px; height:100px">
+                                            </td>
+                                            <td width="20%">
+                                                <button type="button" value="{{ $category->id }}"
+                                                    class="btn btn-info editcat">Edit</button>
+                                                <button type="button" value="{{ $category->id }}"
+                                                    class="btn btn-danger deletecat">Delete</button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    <tr>
+                                        <td colspan="5">No Data Found</td>
+                                    </tr>
+                                @endif
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

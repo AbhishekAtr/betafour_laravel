@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
 use App\Models\Product;
+use GuzzleHttp\Psr7\Request as Psr7Request;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,11 +15,20 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $product = Product::all();
+        $search = $request['search'] ?? "";
+        if($search != "")
+        {
+            $product = Product::where('category', 'LIKE', "%$search%")->orwhere('title', 'LIKE', "%$search%")->get();
+        }
+        else
+        {
+            $product = Product::all();
+        }
+        
         $categories = Categories::all();
-        return view('backend.products',compact('product','categories'));
+        return view('backend.products',compact('product','categories','search'));
     }
 
     /**

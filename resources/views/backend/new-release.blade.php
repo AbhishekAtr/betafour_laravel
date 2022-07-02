@@ -25,10 +25,23 @@
         </div>
     </div>
     <div class="col-md-12">
-        <div class="card py-4">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-10">
+                        <form>
+                            <div class="col-md-4 form-group">
+                                <input type="search" class="form-control" name="search" id="search"
+                                    value="{{ $search }}" placeholder="search here">
+                            </div>
+                            <div class="col-md-3 mt-4">
+                                <button class="btn btn-success" type="submit">Search</button>
+                                <a href="{{url('/new-release')}}">
+                                    <button class="btn-info btn" type="button">Reset</button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
                             data-bs-target="#exampleModal">
                             Add Products
@@ -36,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <div class="container-fluid text-center">
+            <div class="container mt-2">
                 <table class="table table-striped w-100">
                     <thead>
                         <tr class="table-success">
@@ -85,7 +98,6 @@
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('scripts')
@@ -184,9 +196,9 @@
                                     <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
                                     <select class="form-select" aria-label="Default select example" name="category">
                                         <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->title }}">{{ $cat->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -247,10 +259,10 @@
                                     <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
                                     <select class="form-select" aria-label="Default select example" name="category"
                                         id="category">
-                                        <option selected>Open this select menu</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option>Open this select menu</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->title }}" selected>{{ $cat->title }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

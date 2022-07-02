@@ -1,4 +1,4 @@
-< <div id="top-footer">
+<div id="top-footer">
     <div class="container">
         <div class="row" style="display: flex; justify-content: space-around;">
 

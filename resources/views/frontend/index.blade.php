@@ -237,13 +237,13 @@
 <div class="container my-5">
   <div class="row text-center">
     <div class="col-md-4 col-lg-4">
-      <img src="images/brands/1.png" alt="">
+      <img src="{{url('frontend/images/brands/1.png')}}" alt="">
     </div>
     <div class="col-md-4 col-lg-4">
-      <img src="images/brands/SM-LOGO-png-1536x585.png" alt="" style="width: 350px;">
+      <img src="{{url('frontend/images/brands/SM-LOGO-png-1536x585.png')}}" alt="" style="width: 350px;">
     </div>
     <div class="col-md-4 col-lg-4">
-      <img src="images/brands/SMK-circle-logo-png-150x150.png" alt="">
+      <img src="{{url('frontend/images/brands/SMK-circle-logo-png-150x150.png')}}" alt="">
     </div>
   </div>
 </div>

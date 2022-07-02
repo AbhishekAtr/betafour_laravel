@@ -24,14 +24,11 @@ class ProductsController extends Controller
     public function details($id)
     {
         // echo gettype(($title));
-        
-            if(Product::where('id', $id))
-            {
-                $categories = Categories::all();
-                $product = Product::where('id', $id)->first();
-                return view('frontend.productdetails', compact('product', 'categories'));
-            }
-            
+
+        if (Product::where('id', $id)) {
+            $categories = Categories::all();
+            $product = Product::where('id', $id)->first();
+            return view('frontend.productdetails', compact('product', 'categories'));
         }
-    
+    }
 }

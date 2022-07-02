@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Newrelease;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class NewreleaseController extends Controller
@@ -15,8 +16,18 @@ class NewreleaseController extends Controller
      */
     public function index()
     {
-        $newrelease = Newrelease::all();
-        return view('backend.new-release',['newrelease' => $newrelease]);
+        $search = $request['search'] ?? "";
+        if($search != "")
+        {
+            $newrelease = Newrelease::where('category', 'LIKE', "%$search%")->orwhere('title', 'LIKE', "%$search%")->get();
+        }
+        else
+        {
+            $newrelease = Newrelease::all();
+        }
+        // $newrelease = Newrelease::all();
+        $categories = Categories::all();
+        return view('backend.new-release',['newrelease' => $newrelease, 'search' => $search, 'categories'=> $categories]);
     }
 
 

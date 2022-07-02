@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\frontend\HomeController;
-use App\Http\Controllers\frontend\AboutController;
-use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\backend\LoginController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\CategoriesController;
@@ -27,11 +25,14 @@ use App\Http\Controllers\frontend\ProductsController;
 // frontend routes
 
 Route::get('/',[HomeController::class,'index']);
-Route::get('/about',[AboutController::class,'index']);
-Route::get('/contact',[ContactController::class,'index']);
 Route::get('products/{title}',[ProductsController::class,'index']);
 Route::get('productdetails/{id}',[ProductsController::class,'details'])->name('productdetails');
-
+Route::get('/catalogue',[HomeController::class,'cat']);
+Route::get('/news',[HomeController::class,'news']);
+Route::get('/about',[HomeController::class,'about']);
+Route::get('/contact',[HomeController::class,'contact']);
+Route::get('/newrelease',[HomeController::class,'new']);
+Route::get('/newproductdetails/{id}',[HomeController::class,'newdetails']);
 
 // backend routes
 
@@ -76,3 +77,13 @@ Route::post('/new-release', [NewreleaseController::class, 'store'])->name('new-r
 Route::get('edit-newproduct/{id}', [NewreleaseController::class, 'edit'])->name('edit-newproduct');
 Route::post('/edit-newproduct', [NewreleaseController::class, 'update'])->name('edit-newproduct');
 Route::delete('/delete-newproduct/{id}', [NewreleaseController::class, 'delete'])->name('delete-newproduct');
+
+
+// Route::group(['middleware'=>'disable_back_btn'],function(){
+//     Route::get('/home-slider',[SliderController::class,'index'])->name('home-slider')->middleware('isLoggedIn');
+//     Route::get('/home-slider',[SliderController::class,'index'])->name('home-slider')->middleware('isLoggedIn');
+//     Route::get('/category', [CategoriesController::class, 'index'])->name('category')->middleware('isLoggedIn');
+//     Route::get('/product', [ProductController::class, 'index'])->name('product')->middleware('isLoggedIn');
+//     Route::get('/new-release', [NewreleaseController::class, 'index'])->name('new-release')->middleware('isLoggedIn');
+//     Route::get('/logout',[LoginController::class,'destroy']);
+// });

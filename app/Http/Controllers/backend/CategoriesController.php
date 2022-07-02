@@ -13,10 +13,19 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Categories::all();
-        return view('backend.categories',['categories' => $categories]);
+        $search = $request['search'] ?? "";
+        if($search != "")
+        {
+            $categories = Categories::where('title', 'LIKE', "%$search%")->orwhere('description', 'LIKE', "%$search%")->get();
+        }
+        else
+        {
+            $categories = Categories::all();
+        }
+        // $categories = Categories::all();
+        return view('backend.categories',['categories' => $categories, 'search' => $search]);
     }
 
     /**

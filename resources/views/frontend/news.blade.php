@@ -1,6 +1,9 @@
 <!-- Header -->
 
-<?php include 'include/header.php'; ?>
+@extends('frontend.include.main')
+
+
+@section('main')
 
 
 <!-- Breadcrums start -->
@@ -56,7 +59,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n1.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n1.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                     <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -89,7 +92,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n2.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n2.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -122,7 +125,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n3.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n3.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -155,7 +158,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n4.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n4.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -186,7 +189,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n5.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n5.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -209,7 +212,7 @@
                                         <span class="mr-2 text-dark">Leave a comment</span> </a>
                                 </div>
                                 <p class="mb-0">
-                                    We had taken part at Mumbai Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [¡K]
+                                    We had taken part at Mumbai Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [ï¿½K]
                                 </p>
                             </div>
                         </div>
@@ -217,7 +220,7 @@
                             <div class="col-sm-4 grid-margin">
                                 <div class="position-relative">
                                     <div class="rotate-img">
-                                        <img src="images/news/n6.jpg" alt="thumb" class="img-fluid">
+                                        <img src="{{url('frontend/images/news/n6.jpg')}}" alt="thumb" class="img-fluid">
                                     </div>
                                     <!-- <div class="badge-positioned">
                                         <span class="badge badge-danger font-weight-bold">Flash news</span>
@@ -240,7 +243,7 @@
                                         <span class="mr-2 text-dark">Leave a comment</span> </a>
                                 </div>
                                 <p class="mb-0">
-                                    We had taken part at Delhi Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [¡K]
+                                    We had taken part at Delhi Expo 2017, Our Stall no. was D-95. Above there are some of the pictures [ï¿½K]
                                 </p>
                             </div>
                         </div>
@@ -253,7 +256,7 @@
 
 
 <!-- footer  -->
-<?php include 'include/footer.php'; ?>
+@endsection
 
 
 
@@ -297,7 +300,7 @@
   </div>
 </div>
 
-{/* WhatsApp icon */}
+
       <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>

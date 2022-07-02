@@ -1,6 +1,9 @@
 <!-- Header -->
 
-<?php include 'include/header.php'; ?>
+@extends('frontend.include.main')
+
+
+@section('main')
 
 <!-- Breadcrums start -->
 
@@ -35,9 +38,8 @@
 </section>
 
 <div class="container pdf">
-    <object data='pdf/betafour-final-catalogue.pdf' type="application/pdf" width="100%" height="700">
-
-        <iframe src='images/pdf/betafour-final-catalogue.pdf' width="100%" height="700">
+    <object data='{{url('frontend/images/pdf/betafour-final-catalogue.pdf')}}' type="application/pdf" width="100%" height="700">
+        <iframe src='{{url('frontend/images/pdf/betafour-final-catalogue.pdf')}}' width="100%" height="700">
             <p>This browser does not support PDF!</p>
         </iframe>
     </object>
@@ -46,9 +48,9 @@
 <!-- end -->
 
 <!-- footer  -->
-<?php include 'include/footer.php'; ?>
+@endsection
 
-{/* WhatsApp icon */}
+
       <a href="https://wa.me/8826660388" class="whatsapp_float" target="_blank" rel="noopener noreferrer">
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a>

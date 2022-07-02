@@ -1,91 +1,103 @@
 @extends('backend.include.sidebar')
 
 @section('main')
-<div class="row my-5">
-    <div class="col-md-12">
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-md-12">
-                    @if (session('success'))
-                        <div class="alert alert-primary" role="alert">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-                </div>
-                <div class="col-md-12">
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                                <p>{{ $error }}</p>
-                            @endforeach
-                        </div>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="card py-4">
-            <div class="container-fluid">
+    <div class="row my-5">
+        <div class="col-md-12">
+            <div class="container mt-5">
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            Add Products
-                        </button>
+                        @if (session('success'))
+                            <div class="alert alert-primary" role="alert">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-12">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                    <p>{{ $error }}</p>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
-            <div class="container-fluid text-center">
-                <table class="table table-striped w-100">
-                    <thead>
-                        <tr class="table-success">
-                            <th>S.no</th>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($product->count() > 0)
-                            @foreach ($product as $product)
-                                <tr>
-                                    <input type="hidden" class="delete" value="{{ $product->id }}">
-                                    <td>{{ $loop->index + 1 }}</td>
-                                    <td>{{ $product->title }}</td>
-                                    <td>{{ $product->category }}</td>
-                                    <td>
-                                        <?php
+        </div>
+        <div class="col-md-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <form>
+                                <div class="col-md-4 form-group">
+                                    <input type="search" class="form-control" name="search" id="search"
+                                        value="{{ $search }}" placeholder="search here">
+                                </div>
+                                <div class="col-md-3 mt-4">
+                                    <button class="btn btn-success" type="submit">Search</button>
+                                    <a href="{{url('/product')}}">
+                                        <button class="btn-info btn" type="button">Reset</button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Add Products
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <table class="table table-striped w-100">
+                        <thead>
+                            <tr class="table-success">
+                                <th>S.no</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($product->count() > 0)
+                                @foreach ($product as $product)
+                                    <tr>
+                                        <input type="hidden" class="delete" value="{{ $product->id }}">
+                                        <td>{{ $loop->index + 1 }}</td>
+                                        <td>{{ $product->title }}</td>
+                                        <td>{{ $product->category }}</td>
+                                        <td>
+                                            <?php
                                                         if ($product->image != ""){
                                                         foreach(explode(',', $product->image) as $info) 
                                                         { 
                                                         ?>
-                                        <img src="uploads/{{ $info }}" style="height:120px; width:200px" />
-                                        <?php  
+                                            <img src="uploads/{{ $info }}" style="height:120px; width:200px" />
+                                            <?php  
                                                         } 
                                                         } 
                                                         ?>
-                                    </td>
-                                    <td>
-                                         <button type="button" value="{{ $product->id }}"
-                                            class="btn btn-info editbtn">Edit</button>
-                                        <button type="button" value="{{ $product->id }}"
-                                            class="btn btn-danger deletebtn">Delete</button>
-                                    </td>
+                                        </td>
+                                        <td>
+                                            <button type="button" value="{{ $product->id }}"
+                                                class="btn btn-info editbtn">Edit</button>
+                                            <button type="button" value="{{ $product->id }}"
+                                                class="btn btn-danger deletebtn">Delete</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="5" class="text-center">No Data Found</td>
                                 </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td colspan="5" class="text-center">No Data Found</td>
-                            </tr>
-                        @endif
-                    </tbody>
-                </table>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection
 
 @section('scripts')
@@ -183,14 +195,14 @@
                             <div class="col-md-12">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
-                                    
+
                                     <select class="form-select" aria-label="Default select example" name="category">
                                         <option selected>Open this select menu</option>
-                                        @foreach($categories as $cat)
-                                        <option value="{{$cat->title}}">{{$cat->title}}</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->title }}">{{ $cat->title }}</option>
                                         @endforeach
                                     </select>
-                                   
+
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -258,9 +270,9 @@
                                     <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
                                     <select class="form-select" aria-label="Default select example" name="category"
                                         id="category">
-                                        <option selected>Open this select menu</option>
-                                        @foreach($categories as $cat)
-                                        <option value="{{$cat->title}}" selected>{{$cat->title}}</option>
+                                        <option>Open this select menu</option>
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->title }}" selected>{{ $cat->title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
